@@ -7,8 +7,8 @@
 }
 
 @font-face {
-  font-family: 'PaladinPCRus';
-  src: url('./../fonts/PaladinPCRus.woff2') format('woff2');
+  font-family: 'CyrillicGoth';
+  src: url('./../fonts/CyrillicGoth.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -123,8 +123,9 @@ h4,
 h5,
 h6 {
   text-align: center;
-  font-family: 'PaladinPCRus';
+  font-family: 'CyrillicGoth';
   font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .scrn-title {
@@ -170,15 +171,15 @@ h6 {
   align-items: center;
   justify-content: center;
 
-  width: 250px;
-  height: 73px;
+  width: 270px;
+  height: 78px;
 
   background-image: url(./../img/bg/btn-bg.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  font-size: 26px;
+  font-size: 22px;
 }
 
 /*--- Header ---*/
@@ -199,13 +200,13 @@ h6 {
   font-size: 80px;
 }
 
-/*--- Welcome Screen ---*/
-.welcome-screen-subtitle {
+/*--- Home Screen ---*/
+.home-screen-subtitle {
   width: 100%;
   max-width: 800px;
   margin-top: 30px;
 }
 
-.welcome-screen-button {
+.home-screen-button {
   margin-top: 60px;
 }
