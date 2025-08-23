@@ -6,13 +6,27 @@ export function charactersInit() {
 
   if (!GAME) return;
 
-  const characterImg = document.querySelector('.character-img');
-  const anotherCharacters = document.querySelectorAll('.another-character');
-
   if (GAME.characters) {
+    const characterImg = document.querySelector('.character-img');
+    const anotherCharacters = document.querySelectorAll('.another-character');
+    const charWin = document.getElementById('wins');
+    const charLose = document.getElementById('loses');
+
     // Restore From LocalStorage
     characterImg.src = GAME.characters[GAME.activeChar].src;
     delActiveClass();
+
+    if (GAME.wins) {
+      charWin.textContent = GAME.wins;
+    } else {
+      charWin.textContent = '0';
+    }
+
+    if (GAME.loses) {
+      charLose.textContent = GAME.loses;
+    } else {
+      charLose.textContent = '0';
+    }
 
     anotherCharacters.forEach((character) => {
       // Restore From LocalStorage

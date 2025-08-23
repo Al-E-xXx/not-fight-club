@@ -27,7 +27,7 @@ export function register() {
       GAME.characterName = characterName;
       GAME.activeChar = 'angel';
       GAME.wins = 0;
-      GAME.losses = 0;
+      GAME.loses = 0;
       GAME.characters = characters;
 
       localStorage.setItem('game1349', JSON.stringify(GAME));
