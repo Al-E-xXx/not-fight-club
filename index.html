@@ -10,21 +10,36 @@
 </head>
 
 <body>
+  <audio id="clickSound" src="./assets/sound/click.mp3" preload="auto"></audio>
   <header class="header">
     <div class="container">
-      <h1 class="main-title">Not Fight Club</h1>
+      <div class="header-info" id="header-info">Home</div>
+      <h1 class="main-title">Not a Fight Club</h1>
+      <div class="header-btn-wrapper">
+        <button class="header-btn header-btn-home" id="home-btn"></button>
+        <button class="header-btn header-btn-user" id="user-btn"></button>
+        <button class="header-btn header-btn-settings" id="settings-btn"></button>
+      </div>
     </div>
   </header>
 
-  <section class="screen home-screen" id="home">
+  <section class="screen register-screen hidden" id="register">
     <div class="container">
-      <h2 class="scrn-title">Welcome, <span id="player-name">User</span>!</h2>
+      <h2 class="scrn-title">Create Your Character</h2>
+      <input class="register-name" id="name" type="text" name="name" placeholder="Character Name">
+      <div class="register-info">At least three characters</div>
+      <button class="main-btn register-btn" id="register-btn">Register</button>
+    </div>
+  </section>
+
+  <section class="screen home-screen hidden" id="home">
+    <div class="container">
+      <h2 class="scrn-title">Welcome, <span class="character-name" id="character-name">User</span>!</h2>
       <h3 class="scrn-subtitle home-screen-subtitle">
         Think carefully before you enter,
         for terrible trials and bloody battles await you, warrior.
       </h3>
       <button class="main-btn home-screen-button" id="start-btn">
-        <!-- Create Character -->
         Fight!
       </button>
     </div>

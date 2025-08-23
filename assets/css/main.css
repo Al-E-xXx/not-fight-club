@@ -83,14 +83,13 @@ textarea {
 /*--- Common Styles ---*/
 body {
   position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: auto;
 
   display: flex;
   flex-direction: column;
 
   width: 100%;
-  min-width: 360px;
+  min-width: 800px;
   min-height: 100dvh;
 
   font-family: 'OpenSans';
@@ -148,6 +147,14 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .container {
@@ -180,6 +187,43 @@ h6 {
   background-size: cover;
 
   font-size: 22px;
+
+  transition: all 0.2s ease;
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  transition: all 0.3s ease;
+}
+
+.header-btn-home {
+  background-image: url(./../img/icons/home.svg);
+}
+
+.header-btn-user {
+  background-image: url(./../img/icons/users-profile.svg);
+}
+
+.header-btn-settings {
+  background-image: url(./../img/icons/settings.svg);
+}
+
+.main-btn:active {
+  transform: translate(2px, 2px);
+}
+
+.header-btn:active {
+  transform: translate(2px, 2px);
 }
 
 /*--- Header ---*/
@@ -198,6 +242,50 @@ h6 {
 
 .main-title {
   font-size: 80px;
+  font-size: clamp(
+    32px,
+    32px + (80 - 32) * (100vw - 360px) / (1280 - 360),
+    80px
+  );
+}
+
+.header-btn-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  font-family: 'OpenSans';
+  font-size: 26px;
+}
+
+/*--- Register Screen ---*/
+.register-name {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #eeeeee;
+  border: 1px solid #cf7c00;
+  border-radius: 6px;
+  color: rgb(16, 32, 50);
+  font-size: 18px;
+}
+
+.register-info {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.register-btn {
+  margin-top: 40px;
 }
 
 /*--- Home Screen ---*/
@@ -209,4 +297,9 @@ h6 {
 
 .home-screen-button {
   margin-top: 60px;
+}
+
+.character-name {
+  text-transform: capitalize;
+  color: rgb(255 27 27);
 }
