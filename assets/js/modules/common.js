@@ -8,7 +8,12 @@ export function playSound(soundId) {
 }
 
 export function changeScreen(showElement) {
+  const headerInfo = document.getElementById('header-info');
+  const title = showElement.dataset.title;
   const currentScreen = document.querySelector('.screen:not(.hidden)');
+
+  headerInfo.textContent = title;
+
   if (!currentScreen) {
     showElement.classList.remove('hidden');
   } else {
@@ -21,4 +26,16 @@ export function changeScreen(showElement) {
       { once: true }
     );
   }
+}
+
+export function changeName(name) {
+  const GAME = JSON.parse(localStorage.getItem('game1349'));
+  const nameElements = document.querySelectorAll('.character-name');
+
+  nameElements.forEach((element) => {
+    element.textContent = name;
+  });
+
+  GAME.characterName = name;
+  localStorage.setItem('game1349', JSON.stringify(GAME));
 }

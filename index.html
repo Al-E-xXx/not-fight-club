@@ -23,18 +23,19 @@
     </div>
   </header>
 
-  <section class="screen register-screen hidden" id="register">
+  <section class="screen register-screen hidden" id="register" data-title="Register">
     <div class="container">
       <h2 class="scrn-title">Create Your Character</h2>
       <input class="register-name" id="name" type="text" name="name" placeholder="Character Name">
-      <div class="register-info">At least three characters</div>
+      <div class="register-info">From three to 15 characters</div>
       <button class="main-btn register-btn" id="register-btn">Register</button>
     </div>
   </section>
 
-  <section class="screen home-screen hidden" id="home">
+  <section class="screen home-screen hidden" id="home" data-title="Home">
     <div class="container">
-      <h2 class="scrn-title">Welcome, <span class="character-name" id="character-name">User</span>!</h2>
+      <h2 class="scrn-title">Welcome, <span class="home-character-name character-name" id="character-name">User</span>!
+      </h2>
       <h3 class="scrn-subtitle home-screen-subtitle">
         Think carefully before you enter,
         for terrible trials and bloody battles await you, warrior.
@@ -42,6 +43,36 @@
       <button class="main-btn home-screen-button" id="start-btn">
         Fight!
       </button>
+    </div>
+  </section>
+
+  <section class="screen character-screen hidden" id="character" data-title="Character">
+    <div class="container">
+      <div class="character-portrait">
+        <div class="screen-character-character-name character-name">Amduscias Satani</div>
+        <div class="character-img-wrapper">
+          <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character">
+        </div>
+        <img class="character-border-img" src="./assets/img/bg/hero-bg.webp" alt="Character-BG">
+        <div class="character-info-wrapper">
+          <div class="character-wins">Wins: <span class="wins">0</span></div>
+          <div class="character-loses">Loses: <span class="loses">0</span></div>
+        </div>
+      </div>
+      <div class="another-characters">
+        <div class="another-character active" data-char="angel">
+          <img class="another-character-img" src="./assets/img/heroes/01-angel.webp" alt="Angel">
+        </div>
+        <div class="another-character" data-char="archer">
+          <img class="another-character-img" src="./assets/img/heroes/02-archer.webp" alt="Archer">
+        </div>
+        <div class="another-character" data-char="alchemist">
+          <img class="another-character-img" src="./assets/img/heroes/03-alchemist.webp" alt="Alchemist">
+        </div>
+        <div class="another-character" data-char="knight">
+          <img class="another-character-img" src="./assets/img/heroes/04-knight.webp" alt="Knight">
+        </div>
+      </div>
     </div>
   </section>
 
