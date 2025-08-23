@@ -28,17 +28,9 @@ export function register() {
 
       homeScrnCharacterName.textContent = characterName;
 
-      registerScrn.classList.add('hidden');
-      registerScrn.addEventListener(
-        'transitionend',
-        () => {
-          homeScrn.classList.remove('hidden');
-        },
-        { once: true }
-      );
+      changeScreen(homeScrn);
 
       GAME.characterName = characterName;
-
       localStorage.setItem('game1349', JSON.stringify(GAME));
     }
   });

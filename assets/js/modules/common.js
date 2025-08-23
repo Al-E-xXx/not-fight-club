@@ -7,12 +7,13 @@ export function playSound(soundId) {
   });
 }
 
-export function changeScreen(showElement, hideElement) {
-  if (!hideElement) {
+export function changeScreen(showElement) {
+  const currentScreen = document.querySelector('.screen:not(.hidden)');
+  if (!currentScreen) {
     showElement.classList.remove('hidden');
   } else {
-    hideElement.classList.add('hidden');
-    hideElement.addEventListener(
+    currentScreen.classList.add('hidden');
+    currentScreen.addEventListener(
       'transitionend',
       () => {
         showElement.classList.remove('hidden');
