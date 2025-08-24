@@ -48,6 +48,7 @@ function battleListeners() {
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
+      console.log('Checkbox clicked');
       playSound('clickSound');
       checkConditions();
     });
