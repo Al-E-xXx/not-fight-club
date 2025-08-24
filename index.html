@@ -40,7 +40,7 @@
         Think carefully before you enter,
         for terrible trials and bloody battles await you, warrior.
       </h3>
-      <button class="main-btn home-screen-button" id="start-btn">
+      <button class="main-btn home-screen-button" id="fight-btn">
         Fight!
       </button>
     </div>
@@ -96,14 +96,14 @@
           <div class="character-portrait">
             <div class="screen-character-character-name character-name">User</div>
             <div class="character-img-wrapper">
-              <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character">
+              <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character" id="battle-char-img">
             </div>
             <img class="character-border-img" src="./assets/img/bg/hero-bg.webp" alt="Character-BG">
           </div>
           <div class="character-health-wrapper">
             <div class="health-title">
               Health:
-              <span id="health-current-value">150</span> / <span id="health-value">150</span>
+              <span id="health-current-value">0</span> / <span id="health-value">0</span>
             </div>
             <div class="health-bar">
               <div class="health-bar-fill"></div>
@@ -168,21 +168,21 @@
               </div>
             </div>
           </div>
-          <button class="main-btn attack-btn" id="attack">Attack!</button>
+          <button class="main-btn attack-btn disabled" id="attack">Attack!</button>
         </div>
 
         <div class="battle-char-wrapper">
           <div class="enemy-portrait">
             <div class="enemy-name" id="enemy-name">Enemy</div>
             <div class="enemy-img-wrapper">
-              <img class="enemy-img" src="./assets/img/enemies/01-demon.webp" alt="Character">
+              <img class="enemy-img" id="enemy-img" src="./assets/img/enemies/01-demon.webp" alt="Character">
             </div>
             <img class="enemy-border-img" src="./assets/img/bg/enemy-bg.webp" alt="Character-BG">
           </div>
           <div class="enemy-health-wrapper">
             <div class="health-title">
               Health:
-              <span id="health-current-value">100</span> / <span id="health-value">100</span>
+              <span id="enemy-health-current-value">100</span> / <span id="enemy-health-value">100</span>
             </div>
             <div class="health-bar">
               <div class="health-bar-fill"></div>

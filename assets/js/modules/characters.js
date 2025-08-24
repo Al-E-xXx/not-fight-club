@@ -44,6 +44,7 @@ export function charactersInit() {
 
           const charName = character.getAttribute('data-char');
           GAME.activeChar = charName;
+          // GAME.charCurrentHealth = GAME.characters[charName].health;
 
           characterImg.src = GAME.characters[charName].src;
 
