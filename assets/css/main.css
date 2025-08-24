@@ -1,0 +1,650 @@
+/*--- Fonts ---*/
+@font-face {
+  font-family: 'OpenSans';
+  src: url('./../fonts/OpenSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CyrillicGoth';
+  src: url('./../fonts/CyrillicGoth.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*--- Reset Styles ---*/
+* {
+  /*--- Disable outline light on touchscreen devices ---*/
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  box-sizing: border-box;
+
+  /*--- Disable select text and image ---*/
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /*--- Reset Geometry ---*/
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+audio {
+  display: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  appearance: none;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+/*--- Common Styles ---*/
+:root {
+  --yellow: #ffdd15;
+  --green: rgb(30, 250, 147);
+  --red: rgb(255 27 27);
+  --min-width: 1260px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* можно добавить рамку */
+}
+
+body {
+  position: relative;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: var(--min-width);
+  min-height: 100dvh;
+
+  font-family: 'OpenSans';
+  font-size: 16px;
+  font-weight: 400;
+
+  background-color: #202020;
+  background-image: url(./../img/bg/main-bg.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--yellow);
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  font-family: 'CyrillicGoth';
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.scrn-title {
+  font-size: 44px;
+}
+
+.scrn-subtitle {
+  font-family: 'OpenSans';
+  font-size: 24px;
+  line-height: 140%;
+  letter-spacing: 0px;
+}
+
+.screen {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  max-width: 1360px;
+  padding: 20px;
+}
+
+.main-btn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 270px;
+  height: 78px;
+
+  background-image: url(./../img/bg/btn-bg.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  font-size: 22px;
+
+  transition: all 0.2s ease;
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  transition: all 0.3s ease;
+}
+
+.header-btn-home {
+  background-image: url(./../img/icons/home.svg);
+}
+
+.header-btn-user {
+  background-image: url(./../img/icons/users-profile.svg);
+}
+
+.header-btn-settings {
+  background-image: url(./../img/icons/settings.svg);
+}
+
+.main-btn:active {
+  transform: translate(2px, 2px);
+}
+
+.header-btn:active {
+  transform: translate(2px, 2px);
+}
+
+/*--- Header ---*/
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: var(--min-width);
+}
+
+.main-title {
+  font-size: 80px;
+  font-size: clamp(
+    32px,
+    32px + (80 - 32) * (100vw - 360px) / (1280 - 360),
+    60px
+  );
+}
+
+.header-btn-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  font-family: 'OpenSans';
+  font-size: 26px;
+}
+
+/*--- Register Screen ---*/
+.register-name {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #eeeeee;
+  border: 1px solid #cf7c00;
+  border-radius: 6px;
+  color: rgb(16, 32, 50);
+  font-size: 18px;
+  text-align: center;
+}
+
+.register-info {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.register-btn {
+  margin-top: 40px;
+}
+
+/*--- Home Screen ---*/
+.home-screen-subtitle {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+}
+
+.home-screen-button {
+  margin-top: 60px;
+}
+
+.home-character-name {
+  text-transform: capitalize;
+  color: var(--red);
+}
+
+/*--- Charecter Screen ---*/
+.character-portrait {
+  position: relative;
+  max-width: 360px;
+}
+
+.character-border-img {
+  position: relative;
+  z-index: 10;
+}
+
+.screen-character-character-name {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+
+  width: 100%;
+  text-align: center;
+  padding-left: 100px;
+
+  font-family: 'CyrillicGoth';
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.character-img-wrapper {
+  position: absolute;
+  top: 13%;
+  right: 10px;
+  overflow: hidden;
+  z-index: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75%;
+  height: 85%;
+}
+
+.character-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-info-wrapper {
+  position: absolute;
+  bottom: -22px;
+  left: 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 30px;
+}
+
+.character-wins {
+  color: var(--green);
+}
+
+.character-loses {
+  color: var(--red);
+}
+
+.another-characters {
+  position: relative;
+  z-index: 20;
+  margin-top: 60px;
+  margin-left: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+.another-character {
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100px;
+  height: 143px;
+  cursor: pointer;
+  border: 1px solid rgb(202, 151, 75);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  transform-origin: bottom;
+}
+
+.another-character-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.another-character.active::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.another-character.active {
+  cursor: default;
+}
+
+.another-character.active img {
+  filter: grayscale(100%);
+}
+
+.another-character:not(.active):hover {
+  z-index: 21;
+  transform: scale(1.1);
+}
+
+/*--- Settings Screen ---*/
+.settings-screen-subtitle {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+}
+
+.settings-name {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #eeeeee;
+  border: 1px solid #cf7c00;
+  border-radius: 6px;
+  color: rgb(16, 32, 50);
+  font-size: 18px;
+  text-align: center;
+}
+
+.settings-info {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.settings-btn {
+  margin-top: 40px;
+}
+
+/*--- Battle Screen ---*/
+.battle-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.battle-screen .character-portrait,
+.battle-screen .enemy-portrait {
+  position: relative;
+  max-width: 300px;
+}
+
+.enemy-name {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+
+  width: 100%;
+  text-align: center;
+  padding-right: 100px;
+
+  font-family: 'CyrillicGoth';
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.enemy-img-wrapper {
+  position: absolute;
+  top: 13%;
+  left: 10px;
+  overflow: hidden;
+  z-index: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75%;
+  height: 85%;
+}
+
+.enemy-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.enemy-border-img {
+  position: relative;
+  z-index: 10;
+}
+
+.character-health-wrapper {
+  width: 100%;
+  padding-left: 72px;
+  margin-top: 5px;
+}
+
+.enemy-health-wrapper {
+  width: 100%;
+  padding-right: 72px;
+  margin-top: 5px;
+}
+
+.health-title {
+  font-size: 14px;
+  text-align: center;
+}
+
+.health-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  margin-top: 5px;
+  border: 1px solid rgb(95, 8, 8);
+  border-radius: 4px;
+}
+
+.health-bar-fill {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(115, 8, 8);
+}
+
+.battle-conditions-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.battle-conditions-title {
+  font-size: 22px;
+  text-align: center;
+}
+
+.battle-checkboxes-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  width: 100%;
+  margin-top: 20px;
+}
+
+.battle-checkboxes-title {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.battle-checkboxes-line {
+  width: 1px;
+  height: 100%;
+  background-color: var(--yellow);
+}
+
+.checkbox-wrapper {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.checkbox-wrapper label,
+.checkbox-wrapper input {
+  cursor: pointer;
+}
+
+.battle-checkboxes-left .checkbox-wrapper {
+  justify-content: flex-end;
+}
+
+.battle-checkboxes-right .checkbox-wrapper {
+  justify-content: flex-start;
+}
+
+.attack-btn {
+  margin-top: 60px;
+}
+
+.logs-wrapper {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-top: 40px;
+  width: 60%;
+  height: 140px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.logs-bg {
+  max-width: 800px;
+}
+
+.attack-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}

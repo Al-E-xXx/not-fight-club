@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <title>Not Fight Club</title>
+</head>
+
+<body>
+  <audio id="clickSound" src="./assets/sound/click.mp3" preload="auto"></audio>
+  <header class="header">
+    <div class="container">
+      <div class="header-info" id="header-info">Home</div>
+      <h1 class="main-title">Not a Fight Club</h1>
+      <div class="header-btn-wrapper">
+        <button class="header-btn header-btn-home" id="home-btn"></button>
+        <button class="header-btn header-btn-user" id="user-btn"></button>
+        <button class="header-btn header-btn-settings" id="settings-btn"></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="screen register-screen hidden" id="register" data-title="Register">
+    <div class="container">
+      <h2 class="scrn-title">Create Your Character</h2>
+      <input class="register-name" id="name" type="text" name="name" placeholder="Character Name">
+      <div class="register-info">From 2 to 15 characters</div>
+      <button class="main-btn register-btn" id="register-btn">Create Character</button>
+    </div>
+  </section>
+
+  <section class="screen home-screen hidden" id="home" data-title="Home">
+    <div class="container">
+      <h2 class="scrn-title">Welcome, <span class="home-character-name character-name" id="character-name">User</span>!
+      </h2>
+      <h3 class="scrn-subtitle home-screen-subtitle">
+        Think carefully before you enter,
+        for terrible trials and bloody battles await you, warrior.
+      </h3>
+      <button class="main-btn home-screen-button" id="fight-btn">
+        Fight!
+      </button>
+    </div>
+  </section>
+
+  <section class="screen character-screen hidden" id="character" data-title="Character">
+    <div class="container">
+      <div class="character-portrait">
+        <div class="screen-character-character-name character-name">User</div>
+        <div class="character-img-wrapper">
+          <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character">
+        </div>
+        <img class="character-border-img" src="./assets/img/bg/hero-bg.webp" alt="Character-BG">
+        <div class="character-info-wrapper">
+          <div class="character-wins">Wins: <span id="wins">0</span></div>
+          <div class="character-loses">Loses: <span id="loses">0</span></div>
+        </div>
+      </div>
+      <div class="another-characters">
+        <div class="another-character active" data-char="angel">
+          <img class="another-character-img" src="./assets/img/heroes/01-angel.webp" alt="Angel">
+        </div>
+        <div class="another-character" data-char="archer">
+          <img class="another-character-img" src="./assets/img/heroes/02-archer.webp" alt="Archer">
+        </div>
+        <div class="another-character" data-char="alchemist">
+          <img class="another-character-img" src="./assets/img/heroes/03-alchemist.webp" alt="Alchemist">
+        </div>
+        <div class="another-character" data-char="knight">
+          <img class="another-character-img" src="./assets/img/heroes/04-knight.webp" alt="Knight">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen settings-screen hidden" id="settings" data-title="Settings">
+    <div class="container">
+      <h2 class="scrn-title">Player Name</h2>
+      <h3 class="scrn-subtitle settings-screen-subtitle">
+        You can change your name here.
+      </h3>
+      <input class="settings-name" id="change-name" type="text" name="change-name" placeholder="Player Name" value="">
+      <div class="settings-info">From 2 to 15 characters</div>
+      <button class="main-btn settings-btn" id="change-name-btn">Change Name</button>
+    </div>
+  </section>
+
+  <section class="screen battle-screen hidden" id="battle" data-title="Battle">
+    <div class="container">
+
+      <div class="battle-wrapper">
+        <div class="battle-char-wrapper">
+          <div class="character-portrait">
+            <div class="screen-character-character-name character-name">User</div>
+            <div class="character-img-wrapper">
+              <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character" id="battle-char-img">
+            </div>
+            <img class="character-border-img" src="./assets/img/bg/hero-bg.webp" alt="Character-BG">
+          </div>
+          <div class="character-health-wrapper">
+            <div class="health-title">
+              Health:
+              <span id="health-current-value">0</span> / <span id="health-value">0</span>
+            </div>
+            <div class="health-bar">
+              <div class="health-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="battle-conditions-wrapper">
+          <div class="battle-conditions-title">
+            Please pick 1 Attack zone and 2 Defence zones!
+          </div>
+          <div class="battle-checkboxes-wrapper">
+            <div class="battle-checkboxes-left">
+              <div class="battle-checkboxes-title">
+                Attack Zones
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-head">Head</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-head" value="head">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-neck">Neck</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-neck" value="neck">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-body">Body</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-body" value="body">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-belly">Belly</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-belly" value="belly">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-legs">Legs</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-legs" value="legs">
+              </div>
+            </div>
+            <div class="battle-checkboxes-line"></div>
+            <div class="battle-checkboxes-right">
+              <div class="battle-checkboxes-title">
+                Defence Zones
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-head" value="head">
+                <label for="defence-head">Head</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-neck" value="neck">
+                <label for="defence-neck">Neck</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-body" value="body">
+                <label for="defence-body">Body</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-belly" value="belly">
+                <label for="defence-belly">Belly</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-legs" value="legs">
+                <label for="defence-legs">Legs</label>
+              </div>
+            </div>
+          </div>
+          <button class="main-btn attack-btn disabled" id="attack">Attack!</button>
+        </div>
+
+        <div class="battle-char-wrapper">
+          <div class="enemy-portrait">
+            <div class="enemy-name" id="enemy-name">Enemy</div>
+            <div class="enemy-img-wrapper">
+              <img class="enemy-img" id="enemy-img" src="./assets/img/enemies/01-demon.webp" alt="Character">
+            </div>
+            <img class="enemy-border-img" src="./assets/img/bg/enemy-bg.webp" alt="Character-BG">
+          </div>
+          <div class="enemy-health-wrapper">
+            <div class="health-title">
+              Health:
+              <span id="enemy-health-current-value">100</span> / <span id="enemy-health-value">100</span>
+            </div>
+            <div class="health-bar">
+              <div class="health-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="logs-wrapper" id="log"></div>
+    </div>
+  </section>
+
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+
+</html>
