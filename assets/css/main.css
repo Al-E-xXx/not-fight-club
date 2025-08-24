@@ -116,7 +116,8 @@ body {
 
   width: 100%;
   min-width: var(--min-width);
-  min-height: 100dvh;
+  height: 100dvh;
+  min-height: 750px;
 
   font-family: 'OpenSans';
   font-size: 16px;
@@ -256,7 +257,7 @@ h6 {
 
 /*--- Header ---*/
 .header {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   top: 0;
   left: 0;
@@ -337,7 +338,8 @@ h6 {
 /*--- Charecter Screen ---*/
 .character-portrait {
   position: relative;
-  max-width: 360px;
+  max-width: 300px;
+  margin-top: 50px;
 }
 
 .character-border-img {
@@ -490,7 +492,7 @@ h6 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .battle-screen .character-portrait,
