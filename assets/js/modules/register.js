@@ -1,5 +1,5 @@
 import { changeScreen, changeName } from './common.js';
-import { characters, enemies } from './settings.js';
+import { characters, enemies, attackZones, defenceZones } from './settings.js';
 
 export function register() {
   const GAME = JSON.parse(localStorage.getItem('game1349')) || {};
@@ -35,6 +35,8 @@ export function register() {
       GAME.wins = 0;
       GAME.loses = 0;
       GAME.charCurrentHealth = characters[GAME.activeChar].health;
+      GAME.attackZones = attackZones;
+      GAME.defenceZones = defenceZones;
       GAME.currentEnemyId = 0;
       GAME.enemyCurrentHealth = enemies[GAME.currentEnemyId].health;
       GAME.characters = characters;

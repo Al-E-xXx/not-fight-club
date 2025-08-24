@@ -48,7 +48,58 @@ function battleListeners() {
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
       playSound('clickSound');
-      console.log('Checkbox state changed!');
+      checkConditions();
     });
   });
+
+  const attackBtn = document.getElementById('attack');
+
+  attackBtn.addEventListener('click', () => {
+    console.log('Attack!!!');
+  });
+}
+
+function checkConditions() {
+  const GAME = JSON.parse(localStorage.getItem('game1349'));
+
+  if (!GAME) return;
+
+  const attackCheckBoxes = document.querySelectorAll(
+    '.battle-checkboxes-left input[type="checkbox"]:checked'
+  );
+
+  const defenseCheckBoxes = document.querySelectorAll(
+    '.battle-checkboxes-right input[type="checkbox"]:checked'
+  );
+
+  const attackBtn = document.getElementById('attack');
+
+  if (attackCheckBoxes.length === 1 && defenseCheckBoxes.length === 2) {
+    // Clear Zones
+    for (const key in GAME.attackZones) {
+      GAME.attackZones[key] = 0;
+    }
+
+    for (const key in GAME.defenceZones) {
+      GAME.defenceZones[key] = 0;
+    }
+
+    // Set Zones
+    attackCheckBoxes.forEach((checkbox) => {
+      const checkedVal = checkbox.value;
+      GAME.attackZones[checkedVal] = 10;
+    });
+
+    defenseCheckBoxes.forEach((checkbox) => {
+      const checkedVal = checkbox.value;
+      GAME.defenceZones[checkedVal] = 10;
+    });
+
+    // Unblock Attack Button
+    attackBtn.classList.remove('disabled');
+
+    localStorage.setItem('game1349', JSON.stringify(GAME));
+  } else {
+    attackBtn.classList.add('disabled');
+  }
 }

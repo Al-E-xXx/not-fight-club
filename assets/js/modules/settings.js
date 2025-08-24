@@ -69,3 +69,19 @@ export const enemies = [
     health: 150,
   },
 ];
+
+export const attackZones = {
+  head: 0,
+  neck: 0,
+  body: 0,
+  belly: 0,
+  legs: 0,
+};
+
+export const defenceZones = {
+  head: 0,
+  neck: 0,
+  body: 0,
+  belly: 0,
+  legs: 0,
+};
