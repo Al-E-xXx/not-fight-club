@@ -49,7 +49,7 @@
   <section class="screen character-screen hidden" id="character" data-title="Character">
     <div class="container">
       <div class="character-portrait">
-        <div class="screen-character-character-name character-name">Amduscias Satani</div>
+        <div class="screen-character-character-name character-name">User</div>
         <div class="character-img-wrapper">
           <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character">
         </div>
@@ -88,13 +88,111 @@
     </div>
   </section>
 
-  <section class="screen battle-screen " id="battle" data-title="Battle">
+  <section class="screen battle-screen hidden" id="battle" data-title="Battle">
     <div class="container">
-      <div class="battle-wrapper">
-        <div class="battle-hero-wrapper">
 
+      <div class="battle-wrapper">
+        <div class="battle-char-wrapper">
+          <div class="character-portrait">
+            <div class="screen-character-character-name character-name">User</div>
+            <div class="character-img-wrapper">
+              <img class="character-img" src="./assets/img/heroes/01-angel.webp" alt="Character">
+            </div>
+            <img class="character-border-img" src="./assets/img/bg/hero-bg.webp" alt="Character-BG">
+          </div>
+          <div class="character-health-wrapper">
+            <div class="health-title">
+              Health:
+              <span id="health-current-value">150</span> / <span id="health-value">150</span>
+            </div>
+            <div class="health-bar">
+              <div class="health-bar-fill"></div>
+            </div>
+          </div>
         </div>
+
+        <div class="battle-conditions-wrapper">
+          <div class="battle-conditions-title">
+            Please pick 1 Attack zone and 2 Defence zones!
+          </div>
+          <div class="battle-checkboxes-wrapper">
+            <div class="battle-checkboxes-left">
+              <div class="battle-checkboxes-title">
+                Attack Zones
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-head">Head</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-head" value="head">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-neck">Neck</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-neck" value="neck">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-body">Body</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-body" value="body">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-belly">Belly</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-belly" value="belly">
+              </div>
+              <div class="checkbox-wrapper">
+                <label for="attack-legs">Legs</label>
+                <input class="battle-checkbox" type="checkbox" id="attack-legs" value="legs">
+              </div>
+            </div>
+            <div class="battle-checkboxes-line"></div>
+            <div class="battle-checkboxes-right">
+              <div class="battle-checkboxes-title">
+                Defence Zones
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-head" value="head">
+                <label for="defence-head">Head</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-neck" value="neck">
+                <label for="defence-neck">Neck</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-body" value="body">
+                <label for="defence-body">Body</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-belly" value="belly">
+                <label for="defence-belly">Belly</label>
+              </div>
+              <div class="checkbox-wrapper">
+                <input class="battle-checkbox" type="checkbox" id="defence-legs" value="legs">
+                <label for="defence-legs">Legs</label>
+              </div>
+            </div>
+          </div>
+          <button class="main-btn attack-btn" id="attack">Attack!</button>
+        </div>
+
+        <div class="battle-char-wrapper">
+          <div class="enemy-portrait">
+            <div class="enemy-name" id="enemy-name">Enemy</div>
+            <div class="enemy-img-wrapper">
+              <img class="enemy-img" src="./assets/img/enemies/01-demon.webp" alt="Character">
+            </div>
+            <img class="enemy-border-img" src="./assets/img/bg/enemy-bg.webp" alt="Character-BG">
+          </div>
+          <div class="enemy-health-wrapper">
+            <div class="health-title">
+              Health:
+              <span id="health-current-value">100</span> / <span id="health-value">100</span>
+            </div>
+            <div class="health-bar">
+              <div class="health-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <div class="logs-wrapper" id="log"></div>
     </div>
   </section>
 
