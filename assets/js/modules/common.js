@@ -31,10 +31,13 @@ export function changeScreen(showElement) {
 export function changeName(name) {
   const GAME = JSON.parse(localStorage.getItem('game1349'));
   const nameElements = document.querySelectorAll('.character-name');
+  const changeNameInput = document.getElementById('change-name');
 
   nameElements.forEach((element) => {
     element.textContent = name;
   });
+
+  changeNameInput.value = name;
 
   GAME.characterName = name;
   localStorage.setItem('game1349', JSON.stringify(GAME));

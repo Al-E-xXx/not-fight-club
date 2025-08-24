@@ -48,8 +48,6 @@ export function charactersInit() {
           characterImg.src = GAME.characters[charName].src;
 
           localStorage.setItem('game1349', JSON.stringify(GAME));
-
-          console.log(charName);
         }
       });
     });

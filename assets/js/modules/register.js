@@ -23,7 +23,11 @@ export function register() {
 
   registerBtn.addEventListener('click', () => {
     const characterName = inputName.value;
-    if (characterName && characterName.length > 2) {
+    if (
+      characterName &&
+      characterName.length > 1 &&
+      characterName.length < 16
+    ) {
       GAME.characterName = characterName;
       GAME.activeChar = 'angel';
       GAME.wins = 0;

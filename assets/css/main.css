@@ -341,6 +341,7 @@ h6 {
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.5px;
+  text-transform: capitalize;
 }
 
 .character-img-wrapper {
@@ -438,4 +439,31 @@ h6 {
 .another-character:not(.active):hover {
   z-index: 21;
   transform: scale(1.1);
+}
+
+/*--- Settings Screen ---*/
+.settings-screen-subtitle {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
+}
+
+.settings-name {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #eeeeee;
+  border: 1px solid #cf7c00;
+  border-radius: 6px;
+  color: rgb(16, 32, 50);
+  font-size: 18px;
+  text-align: center;
+}
+
+.settings-info {
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.settings-btn {
+  margin-top: 40px;
 }
