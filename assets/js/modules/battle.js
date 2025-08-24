@@ -19,7 +19,6 @@ export function battleInit() {
     const enemyCount = GAME.enemies.length - 1;
     GAME.currentEnemyId = getRandomInt(0, enemyCount);
     GAME.enemyCurrentHealth = GAME.enemies[GAME.currentEnemyId].health;
-    localStorage.setItem('game1349', JSON.stringify(GAME));
   }
 
   const enemyNameEl = document.getElementById('enemy-name');
@@ -38,6 +37,8 @@ export function battleInit() {
     battleListeners();
     GAME.isSetBattleListeners = true;
   }
+
+  localStorage.setItem('game1349', JSON.stringify(GAME));
 }
 
 function battleListeners() {
@@ -47,6 +48,7 @@ function battleListeners() {
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
+      console.log('Checkbox clicked');
       playSound('clickSound');
       checkConditions();
     });
