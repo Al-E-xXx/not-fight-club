@@ -14,7 +14,7 @@ buttons.forEach((button) => {
 });
 
 /*--- Init ---*/
-register();
-homeInit();
-charBtnListener();
-settingsInit();
+// register();
+// homeInit();
+// charBtnListener();
+// settingsInit();

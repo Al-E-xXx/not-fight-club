@@ -467,3 +467,11 @@ h6 {
 .settings-btn {
   margin-top: 40px;
 }
+
+/*--- Battle Screen ---*/
+.battle-wrapper {
+  border: 1px solid purple;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
