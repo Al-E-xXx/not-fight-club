@@ -13,13 +13,17 @@ export function battleInit() {
   });
 
   // Data for Character
+  const charHealthBarFillEl = document.getElementById('char-health-fill');
   const battleCharImg = document.getElementById('battle-char-img');
   const healthValue = document.getElementById('health-value');
   const healthCurrentValue = document.getElementById('health-current-value');
+  const charPercentage =
+    (GAME.charCurrentHealth / GAME.characters[GAME.activeChar].health) * 100;
 
   battleCharImg.src = GAME.characters[GAME.activeChar].src;
   healthValue.textContent = GAME.characters[GAME.activeChar].health;
   healthCurrentValue.textContent = GAME.charCurrentHealth;
+  charHealthBarFillEl.style.width = `${charPercentage}%`;
 
   // Data for enemy
   if (GAME.isInBattle === false) {
