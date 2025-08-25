@@ -1,9 +1,16 @@
-import { playSound, getRandomInt } from './common.js';
+import { playSound, getRandomInt, changeScreen } from './common.js';
+import { attack } from './attack.js';
+import { charactersInit } from './characters.js';
 
 export function battleInit() {
   const GAME = JSON.parse(localStorage.getItem('game1349'));
 
   if (!GAME) return;
+
+  // Reset CheckBoxes
+  document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.checked = false;
+  });
 
   // Data for Character
   const battleCharImg = document.getElementById('battle-char-img');
@@ -27,11 +34,17 @@ export function battleInit() {
   const enemyHealthCurrentValueEl = document.getElementById(
     'enemy-health-current-value'
   );
+  const healthBarFillEl = document.getElementById('enemy-health-fill');
+  const percentage =
+    (GAME.enemyCurrentHealth / GAME.enemies[GAME.currentEnemyId].health) * 100;
+  const logEl = document.getElementById('log');
 
   enemyNameEl.textContent = GAME.enemies[GAME.currentEnemyId].name;
   enemyImg.src = GAME.enemies[GAME.currentEnemyId].src;
   enemyHealthValueEl.textContent = GAME.enemies[GAME.currentEnemyId].health;
   enemyHealthCurrentValueEl.textContent = GAME.enemyCurrentHealth;
+  healthBarFillEl.style.width = `${percentage}%`;
+  logEl.innerHTML = GAME.log;
 
   if (GAME.isSetBattleListeners === false) {
     battleListeners();
@@ -41,6 +54,7 @@ export function battleInit() {
   localStorage.setItem('game1349', JSON.stringify(GAME));
 }
 
+/*--- Listeners ---*/
 function battleListeners() {
   const checkboxes = document.querySelectorAll(
     '.battle-screen input[type="checkbox"]'
@@ -57,7 +71,19 @@ function battleListeners() {
   const attackBtn = document.getElementById('attack');
 
   attackBtn.addEventListener('click', () => {
-    console.log('Attack!!!');
+    attack();
+  });
+
+  const winPopup = document.getElementById('popup-win');
+  const winBtn = document.getElementById('win-btn');
+  const characterScrn = document.getElementById('character');
+  console.log('Close');
+  winBtn.addEventListener('click', () => {
+    winPopup.classList.add('hidden');
+
+    charactersInit();
+    changeScreen(characterScrn);
+    console.log('Close');
   });
 }
 

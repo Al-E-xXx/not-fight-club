@@ -11,6 +11,8 @@
 
 <body>
   <audio id="clickSound" src="./assets/sound/click.mp3" preload="auto"></audio>
+  <audio id="win" src="./assets/sound/victory.mp3" preload="auto"></audio>
+
   <header class="header">
     <div class="container">
       <div class="header-info" id="header-info">Home</div>
@@ -185,7 +187,7 @@
               <span id="enemy-health-current-value">100</span> / <span id="enemy-health-value">100</span>
             </div>
             <div class="health-bar">
-              <div class="health-bar-fill"></div>
+              <div class="health-bar-fill" id="enemy-health-fill"></div>
             </div>
           </div>
         </div>
@@ -195,6 +197,14 @@
       <div class="logs-wrapper" id="log"></div>
     </div>
   </section>
+
+  <div class="popup-wrapper hidden" id="popup-win">
+    <div class="popup-content">
+      <h2>You Win!</h2>
+      <p id="popup-win-text">The enemy bleeds and crawls away to Hell!</p>
+      <button class="main-btn" id="win-btn">Ok!</button>
+    </div>
+  </div>
 
   <script type="module" src="./assets/js/main.js"></script>
 </body>

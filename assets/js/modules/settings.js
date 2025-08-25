@@ -42,7 +42,7 @@ export const enemies = [
     src: './assets/img/enemies/01-demon.webp',
     name: 'Asgaroth',
     attackCount: 1,
-    defenseCount: 2,
+    defenseCount: 1,
     attack: 10,
     defense: 10,
     fortune: 10,
@@ -61,8 +61,8 @@ export const enemies = [
   {
     src: './assets/img/enemies/03-necromant.webp',
     name: 'Xanatos',
-    attackCount: 1,
-    defenseCount: 2,
+    attackCount: 2,
+    defenseCount: 1,
     attack: 20,
     defense: 10,
     fortune: 30,
@@ -85,3 +85,21 @@ export const defenceZones = {
   belly: 0,
   legs: 0,
 };
+
+export const enemyAttackZones = {
+  head: 0,
+  neck: 0,
+  body: 0,
+  belly: 0,
+  legs: 0,
+};
+
+export const enemyDefenceZones = {
+  head: 0,
+  neck: 0,
+  body: 0,
+  belly: 0,
+  legs: 0,
+};
+
+export const zones = ['head', 'neck', 'body', 'belly', 'legs'];
