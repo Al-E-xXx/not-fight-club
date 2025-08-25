@@ -79,10 +79,15 @@ function battleListeners() {
   const winBtn = document.getElementById('win-btn');
   const characterScrn = document.getElementById('character');
   const charHealthBarFillEl = document.getElementById('char-health-fill');
+  const healthCurrentValueEl = document.getElementById('health-current-value');
   winBtn.addEventListener('click', () => {
+    const GAME = JSON.parse(localStorage.getItem('game1349'));
     winPopup.classList.add('hidden');
 
     charHealthBarFillEl.style.width = '100%';
+    healthCurrentValueEl.textContent = 150;
+    GAME.charCurrentHealth = 150;
+    localStorage.setItem('game1349', JSON.stringify(GAME));
 
     charactersInit();
     changeScreen(characterScrn);
@@ -94,9 +99,13 @@ function battleListeners() {
   const loseBtn = document.getElementById('lose-btn');
 
   loseBtn.addEventListener('click', () => {
+    const GAME = JSON.parse(localStorage.getItem('game1349'));
     losePopup.classList.add('hidden');
 
     charHealthBarFillEl.style.width = '100%';
+    healthCurrentValueEl.textContent = 150;
+    GAME.charCurrentHealth = 150;
+    localStorage.setItem('game1349', JSON.stringify(GAME));
 
     charactersInit();
     changeScreen(characterScrn);
