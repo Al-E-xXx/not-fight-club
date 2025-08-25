@@ -45,7 +45,7 @@ export const enemies = [
     defenseCount: 1,
     attack: 10,
     defense: 10,
-    fortune: 10,
+    fortune: 50,
     health: 100,
   },
   {
@@ -65,7 +65,7 @@ export const enemies = [
     defenseCount: 1,
     attack: 20,
     defense: 10,
-    fortune: 30,
+    fortune: 25,
     health: 150,
   },
 ];

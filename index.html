@@ -12,6 +12,7 @@
 <body>
   <audio id="clickSound" src="./assets/sound/click.mp3" preload="auto"></audio>
   <audio id="win" src="./assets/sound/victory.mp3" preload="auto"></audio>
+  <audio id="lose" src="./assets/sound/defeat.mp3" preload="auto"></audio>
 
   <header class="header">
     <div class="container">
@@ -108,7 +109,7 @@
               <span id="health-current-value">0</span> / <span id="health-value">0</span>
             </div>
             <div class="health-bar">
-              <div class="health-bar-fill"></div>
+              <div class="health-bar-fill" id="char-health-fill"></div>
             </div>
           </div>
         </div>
@@ -203,6 +204,14 @@
       <h2>You Win!</h2>
       <p id="popup-win-text">The enemy bleeds and crawls away to Hell!</p>
       <button class="main-btn" id="win-btn">Ok!</button>
+    </div>
+  </div>
+
+  <div class="popup-wrapper hidden" id="popup-lose">
+    <div class="popup-content">
+      <h2>You Lose!</h2>
+      <p id="popup-lose-text">You writhe in pain and die while your enemy mocks you!</p>
+      <button class="main-btn" id="lose-btn">Ok!</button>
     </div>
   </div>
 
