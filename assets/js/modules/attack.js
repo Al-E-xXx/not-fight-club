@@ -7,7 +7,7 @@ export function attack() {
 
   GAME.isInBattle = true;
 
-  console.log('Attack!!!');
+  // console.log('Attack!!!');
 
   const enemyAttacsCount = GAME.enemies[GAME.currentEnemyId].attackCount;
   const enemyDefencesCount = GAME.enemies[GAME.currentEnemyId].defenseCount;
@@ -147,8 +147,8 @@ export function attack() {
       }
     }
 
-    console.log('log: ', log);
-    console.log('damage: ', damage);
+    // console.log('log: ', log);
+    // console.log('damage: ', damage);
   }
 
   // Enemy Attack!
@@ -156,7 +156,7 @@ export function attack() {
     let log = '';
     let damage = 0;
 
-    console.log('GAME.attackZones[key]: ', GAME.enemyAttackZones[key]);
+    // console.log('GAME.attackZones[key]: ', GAME.enemyAttackZones[key]);
 
     if (
       GAME.enemyAttackZones[key] > 0 &&
