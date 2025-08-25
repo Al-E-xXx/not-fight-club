@@ -4,6 +4,9 @@ import { charBtnListener } from './modules/characters.js';
 import { homeInit } from './modules/home.js';
 import { settingsInit } from './modules/settings-scrn.js';
 
+window.win = 0;
+window.los = 0;
+
 /*--- Buttons Sound ---*/
 const buttons = document.querySelectorAll('button');
 

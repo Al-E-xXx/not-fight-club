@@ -16,17 +16,8 @@ export function charactersInit() {
     characterImg.src = GAME.characters[GAME.activeChar].src;
     delActiveClass();
 
-    if (GAME.wins) {
-      charWin.textContent = GAME.wins;
-    } else {
-      charWin.textContent = '0';
-    }
-
-    if (GAME.loses) {
-      charLose.textContent = GAME.loses;
-    } else {
-      charLose.textContent = '0';
-    }
+    charWin.textContent = GAME.wins;
+    charLose.textContent = GAME.loses;
 
     anotherCharacters.forEach((character) => {
       // Restore From LocalStorage
