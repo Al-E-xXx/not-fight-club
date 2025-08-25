@@ -35,13 +35,13 @@ export function attack() {
       multiplier = 1.5;
     }
 
-    console.log('randomIndex:', randomIndex);
-    console.log('attackZone:', attackZone);
+    // console.log('randomIndex:', randomIndex);
+    // console.log('attackZone:', attackZone);
 
     GAME.enemyAttackZones[attackZone] = 10 * multiplier;
     zones.splice(randomIndex, 1);
 
-    console.log('GAME.enemyAttackZones: ', GAME.enemyAttackZones);
+    // console.log('GAME.enemyAttackZones: ', GAME.enemyAttackZones);
   }
 
   // Generate Enemy Defences
@@ -51,13 +51,13 @@ export function attack() {
     const randomIndex = getRandomInt(0, zonesCount - 1);
     const defenceZone = zones[randomIndex];
 
-    console.log('randomIndex:', randomIndex);
-    console.log('defenceZone:', defenceZone);
+    // console.log('randomIndex:', randomIndex);
+    // console.log('defenceZone:', defenceZone);
 
     GAME.enemyDefenceZones[defenceZone] = 10;
     zones.splice(randomIndex, 1);
 
-    console.log('GAME.enemyDefenceZones: ', GAME.enemyDefenceZones);
+    // console.log('GAME.enemyDefenceZones: ', GAME.enemyDefenceZones);
   }
 
   // Hero Attack!
@@ -129,15 +129,21 @@ export function attack() {
         }</b> bleeds and crawls away to Hell!`;
 
         GAME.wins++;
+        console.log('GAME.wins: ', GAME.wins);
+        console.log('GAME.loses: ', GAME.loses);
         GAME.log = '';
         logEl.innerHTML = '';
         winEl.textContent = GAME.wins;
+        loseEl.textContent = GAME.loses;
         playSound('win');
         winPopup.classList.remove('hidden');
         popupWinTextEl.innerHTML = log;
+        log = '';
         attackBtn.classList.add('disabled');
         GAME.charCurrentHealth = GAME.characters[GAME.activeChar].health;
         charHealthBarFillEl.style.width = '100%';
+
+        localStorage.setItem('game1349', JSON.stringify(GAME));
       }
     }
 
@@ -224,15 +230,21 @@ export function attack() {
         }</b> mocks you!`;
 
         GAME.loses++;
+        console.log('GAME.wins: ', GAME.wins);
+        console.log('GAME.loses: ', GAME.loses);
         GAME.log = '';
         logEl.innerHTML = '';
+        winEl.textContent = GAME.wins;
         loseEl.textContent = GAME.loses;
         playSound('lose');
         losePopup.classList.remove('hidden');
         popupLoseTextEl.innerHTML = log;
+        log = '';
         attackBtn.classList.add('disabled');
         GAME.charCurrentHealth = GAME.characters[GAME.activeChar].health;
         charHealthBarFillEl.style.width = '100%';
+
+        localStorage.setItem('game1349', JSON.stringify(GAME));
       }
     }
   }

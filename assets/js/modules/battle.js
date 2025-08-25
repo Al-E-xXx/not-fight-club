@@ -78,9 +78,11 @@ function battleListeners() {
   const winPopup = document.getElementById('popup-win');
   const winBtn = document.getElementById('win-btn');
   const characterScrn = document.getElementById('character');
-  console.log('Close');
+  const charHealthBarFillEl = document.getElementById('char-health-fill');
   winBtn.addEventListener('click', () => {
     winPopup.classList.add('hidden');
+
+    charHealthBarFillEl.style.width = '100%';
 
     charactersInit();
     changeScreen(characterScrn);
@@ -90,8 +92,11 @@ function battleListeners() {
   //For losePopUp
   const losePopup = document.getElementById('popup-lose');
   const loseBtn = document.getElementById('lose-btn');
+
   loseBtn.addEventListener('click', () => {
     losePopup.classList.add('hidden');
+
+    charHealthBarFillEl.style.width = '100%';
 
     charactersInit();
     changeScreen(characterScrn);
