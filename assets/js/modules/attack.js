@@ -128,9 +128,13 @@ export function attack() {
           GAME.enemies[GAME.currentEnemyId].name
         }</b> bleeds and crawls away to Hell!`;
 
-        GAME.wins++;
-        console.log('GAME.wins: ', GAME.wins);
-        console.log('GAME.loses: ', GAME.loses);
+        console.log('Before Incr W GAME.wins: ', window.win);
+        console.log('Before Incr W GAME.loses: ', window.los);
+
+        window.win = window.win + 1;
+
+        console.log('After Incr W GAME.wins: ', window.win);
+        console.log('After Incr W GAME.loses: ', window.los);
         GAME.log = '';
         logEl.innerHTML = '';
         winEl.textContent = GAME.wins;
@@ -142,8 +146,6 @@ export function attack() {
         attackBtn.classList.add('disabled');
         GAME.charCurrentHealth = GAME.characters[GAME.activeChar].health;
         charHealthBarFillEl.style.width = '100%';
-
-        localStorage.setItem('game1349', JSON.stringify(GAME));
       }
     }
 
@@ -229,9 +231,13 @@ export function attack() {
           GAME.enemies[GAME.currentEnemyId].name
         }</b> mocks you!`;
 
-        GAME.loses++;
-        console.log('GAME.wins: ', GAME.wins);
-        console.log('GAME.loses: ', GAME.loses);
+        console.log('Before Incr L GAME.wins: ', GAME.wins);
+        console.log('Before Incr L GAME.loses: ', window.los);
+
+        window.los = window.los + 1;
+
+        console.log('After Incr L GAME.wins: ', GAME.wins);
+        console.log('After Incr L GAME.loses: ', window.los);
         GAME.log = '';
         logEl.innerHTML = '';
         winEl.textContent = GAME.wins;
@@ -243,12 +249,15 @@ export function attack() {
         attackBtn.classList.add('disabled');
         GAME.charCurrentHealth = GAME.characters[GAME.activeChar].health;
         charHealthBarFillEl.style.width = '100%';
-
-        localStorage.setItem('game1349', JSON.stringify(GAME));
       }
     }
   }
 
   // Save in LS
+  GAME.wins = window.win;
+  GAME.loses = window.los;
   localStorage.setItem('game1349', JSON.stringify(GAME));
+
+  console.log('End GAME.wins: ', GAME.wins);
+  console.log('End GAME.loses: ', GAME.loses);
 }
