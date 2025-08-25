@@ -7,8 +7,6 @@ export function attack() {
 
   GAME.isInBattle = true;
 
-  // console.log('Attack!!!');
-
   const enemyAttacsCount = GAME.enemies[GAME.currentEnemyId].attackCount;
   const enemyDefencesCount = GAME.enemies[GAME.currentEnemyId].defenseCount;
   const enemyFortune = 100 / GAME.enemies[GAME.currentEnemyId].fortune;
@@ -35,13 +33,8 @@ export function attack() {
       multiplier = 1.5;
     }
 
-    // console.log('randomIndex:', randomIndex);
-    // console.log('attackZone:', attackZone);
-
     GAME.enemyAttackZones[attackZone] = 10 * multiplier;
     zones.splice(randomIndex, 1);
-
-    // console.log('GAME.enemyAttackZones: ', GAME.enemyAttackZones);
   }
 
   // Generate Enemy Defences
@@ -51,13 +44,8 @@ export function attack() {
     const randomIndex = getRandomInt(0, zonesCount - 1);
     const defenceZone = zones[randomIndex];
 
-    // console.log('randomIndex:', randomIndex);
-    // console.log('defenceZone:', defenceZone);
-
     GAME.enemyDefenceZones[defenceZone] = 10;
     zones.splice(randomIndex, 1);
-
-    // console.log('GAME.enemyDefenceZones: ', GAME.enemyDefenceZones);
   }
 
   // Hero Attack!
@@ -76,28 +64,47 @@ export function attack() {
     let log = '';
     let damage = 0;
 
-    // console.log('GAME.attackZones[key]: ', GAME.attackZones[key]);
+    const fortuneRandom = getRandomInt(1, 2);
 
-    if (
-      GAME.attackZones[key] > 0 &&
-      GAME.attackZones[key] === GAME.enemyDefenceZones[key]
-    ) {
+    let multiplier = 1;
+    if (fortuneRandom === 1) {
+      multiplier = 1.5;
+    }
+
+    const heroAttack = GAME.attackZones[key] * multiplier;
+
+    if (heroAttack > 0 && heroAttack === GAME.enemyDefenceZones[key]) {
       log = `<p><b>${GAME.characterName}</b> attacked <b>${
         GAME.enemies[GAME.currentEnemyId].name
       }</b> to <b>${key}</b> but <b>${
         GAME.enemies[GAME.currentEnemyId].name
       }</b> was able to protect his <b>${key}</b>!`;
-    }
+    } else if (heroAttack > 0 && GAME.enemyDefenceZones[key] === 0) {
+      damage = heroAttack - GAME.enemyDefenceZones[key];
 
-    if (
-      GAME.attackZones[key] > 0 &&
-      GAME.attackZones[key] > GAME.enemyDefenceZones[key]
-    ) {
-      damage = GAME.attackZones[key] - GAME.enemyDefenceZones[key];
+      if (damage === 10) {
+        log = `<p><b>${GAME.characterName}</b> attacked <b>${
+          GAME.enemies[GAME.currentEnemyId].name
+        }</b> to <b>${key}</b> and deal <b>${damage}</b> damage!</p>`;
+      }
+
+      if (damage > 10) {
+        log = `<p><b>${GAME.characterName}</b> attacked <b>${
+          GAME.enemies[GAME.currentEnemyId].name
+        }</b> to <b>${key}</b>. <b>${
+          GAME.characterName
+        }</b> is lucky and deal <b>${damage}</b> damage!</p>`;
+      }
+    } else if (heroAttack > 0 && heroAttack > GAME.enemyDefenceZones[key]) {
+      damage = heroAttack;
 
       log = `<p><b>${GAME.characterName}</b> attacked <b>${
         GAME.enemies[GAME.currentEnemyId].name
-      }</b> to <b>${key}</b> and deal <b>${damage}</b> damage!</p>`;
+      }</b> to <b>${key}</b>. <b>${
+        GAME.enemies[GAME.currentEnemyId].name
+      }</b> tried to block but <b>${
+        GAME.characterName
+      }</b> was very lucky and crit his oppenent for <b>${damage}</b> damage!`;
     }
 
     // Log
@@ -128,13 +135,8 @@ export function attack() {
           GAME.enemies[GAME.currentEnemyId].name
         }</b> bleeds and crawls away to Hell!`;
 
-        console.log('Before Incr W GAME.wins: ', window.win);
-        console.log('Before Incr W GAME.loses: ', window.los);
-
         window.win = window.win + 1;
 
-        console.log('After Incr W GAME.wins: ', window.win);
-        console.log('After Incr W GAME.loses: ', window.los);
         GAME.log = '';
         logEl.innerHTML = '';
         winEl.textContent = GAME.wins;
@@ -148,17 +150,12 @@ export function attack() {
         charHealthBarFillEl.style.width = '100%';
       }
     }
-
-    // console.log('log: ', log);
-    // console.log('damage: ', damage);
   }
 
   // Enemy Attack!
   for (const key in GAME.enemyAttackZones) {
     let log = '';
     let damage = 0;
-
-    // console.log('GAME.attackZones[key]: ', GAME.enemyAttackZones[key]);
 
     if (
       GAME.enemyAttackZones[key] > 0 &&
@@ -190,7 +187,7 @@ export function attack() {
       GAME.enemyAttackZones[key] > 0 &&
       GAME.enemyAttackZones[key] > GAME.defenceZones[key]
     ) {
-      damage = GAME.enemyAttackZones[key] - GAME.defenceZones[key];
+      damage = GAME.enemyAttackZones[key];
 
       log = `<p><b>${GAME.enemies[GAME.currentEnemyId].name}</b> attacked <b>${
         GAME.characterName
@@ -198,9 +195,7 @@ export function attack() {
         GAME.characterName
       }</b> tried to block but <b>${
         GAME.enemies[GAME.currentEnemyId].name
-      }</b> was very lucky and crit his oppenent for <b>${
-        damage + 10
-      }</b> damage!`;
+      }</b> was very lucky and crit his oppenent for <b>${damage}</b> damage!`;
     }
 
     // Log
@@ -231,13 +226,8 @@ export function attack() {
           GAME.enemies[GAME.currentEnemyId].name
         }</b> mocks you!`;
 
-        console.log('Before Incr L GAME.wins: ', GAME.wins);
-        console.log('Before Incr L GAME.loses: ', window.los);
-
         window.los = window.los + 1;
 
-        console.log('After Incr L GAME.wins: ', GAME.wins);
-        console.log('After Incr L GAME.loses: ', window.los);
         GAME.log = '';
         logEl.innerHTML = '';
         winEl.textContent = GAME.wins;
@@ -257,7 +247,4 @@ export function attack() {
   GAME.wins = window.win;
   GAME.loses = window.los;
   localStorage.setItem('game1349', JSON.stringify(GAME));
-
-  console.log('End GAME.wins: ', GAME.wins);
-  console.log('End GAME.loses: ', GAME.loses);
 }
