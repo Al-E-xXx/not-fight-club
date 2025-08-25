@@ -83,6 +83,7 @@ function battleListeners() {
   winBtn.addEventListener('click', () => {
     const GAME = JSON.parse(localStorage.getItem('game1349'));
     GAME.charCurrentHealth = 150;
+    GAME.log = '';
     winPopup.classList.add('hidden');
 
     charHealthBarFillEl.style.width = '100%';
@@ -101,6 +102,7 @@ function battleListeners() {
   loseBtn.addEventListener('click', () => {
     const GAME = JSON.parse(localStorage.getItem('game1349'));
     GAME.charCurrentHealth = 150;
+    GAME.log = '';
     losePopup.classList.add('hidden');
 
     charHealthBarFillEl.style.width = '100%';
