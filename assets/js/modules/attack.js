@@ -72,7 +72,7 @@ export function attack() {
         GAME.enemies[GAME.currentEnemyId].name
       }</b> to ${key} but <b>${
         GAME.enemies[GAME.currentEnemyId].name
-      }</b> was able to protect his ${key}!`;
+      }</b> was able to protect his <b>${key}</b>!`;
     }
 
     if (
@@ -83,7 +83,7 @@ export function attack() {
 
       log = `<p><b>${GAME.characterName}</b> attacked <b>${
         GAME.enemies[GAME.currentEnemyId].name
-      }</b> to ${key} and deal ${damage} damage!</p>`;
+      }</b> to <b>${key}</b> and deal ${damage} damage!</p>`;
     }
 
     // Log
@@ -105,6 +105,8 @@ export function attack() {
 
       const winPopup = document.getElementById('popup-win');
       const popupWinTextEl = document.getElementById('popup-win-text');
+      const attackBtn = document.getElementById('attack');
+
       if (GAME.enemyCurrentHealth === 0) {
         GAME.isInBattle = false;
 
@@ -119,6 +121,7 @@ export function attack() {
         playSound('win');
         winPopup.classList.remove('hidden');
         popupWinTextEl.innerHTML = log;
+        attackBtn.classList.add('disabled');
       }
     }
 

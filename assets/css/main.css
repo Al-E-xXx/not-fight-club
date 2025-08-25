@@ -639,6 +639,11 @@ h6 {
   overflow-y: auto;
 }
 
+.logs-wrapper b {
+  color: rgb(206, 27, 27);
+  text-transform: capitalize;
+}
+
 .logs-bg {
   max-width: 800px;
 }
