@@ -644,6 +644,10 @@ h6 {
   text-transform: capitalize;
 }
 
+.logs-wrapper p {
+  margin: 5px 0 5px 0;
+}
+
 .logs-bg {
   max-width: 800px;
 }
